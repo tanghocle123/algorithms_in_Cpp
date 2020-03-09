@@ -1,0 +1,9 @@
+1_21
+
+	 Show that Property 1_3 holds for the algorithm described in Exercise 1_20
+
+---------------------------------------------------------------------------------------------------
+
+	Because the algorithm in 1_20 is similar to program 1_3.
+	When we group two tree with the same height, the heigh of the total tree increase by 1, that's log2.
+	But when we group two groups, one with i height, and one with j height, the height remains the same

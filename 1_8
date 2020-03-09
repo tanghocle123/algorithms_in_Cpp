@@ -1,0 +1,80 @@
+1_8
+
+	Do exercise 1_4, but use the weighted quick-union algorithm with path compression by halving (Program 1_4)
+
+---------------------------------------------------------------------------------------------------
+	Code: 
+
+#include <iostream>
+static const int N=1000;
+int main()
+{
+    int p,q;
+    int id[N];
+    int height[N];
+    int i,j;
+
+    int counter=0;
+    for(i=0;i<N;i++)
+    {
+        id[i]=i;
+        height[i]=1;
+    }
+
+    while(std::cin >> p >> q)
+    {
+        counter=0;
+        for(i=id[p];i!=id[i];i=id[i])
+        {
+                id[i]=id[id[i]];
+                counter+=3;
+        }
+        for(j=id[q];j!=id[j];j=id[j])
+        {
+                id[j]=id[id[j]];
+                counter+=3;
+        }
+        if(height[j]>=height[i])
+        {
+            id[i]=id[j];
+            height[j]+=height[i];
+            counter+=2;
+        }
+        else
+        {
+            id[j]=id[i];
+            height[i]+=height[j];
+            counter+=2;
+        }
+
+        for(i=0;i<7;i++)
+        {
+            std::cout << id[i] << " ";
+        }
+        std::cout << '\t' << counter << std::endl << std::endl;
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+	0 2
+	2 1 2 3 4 5 6	2
+
+	1 4
+	2 4 2 3 4 5 6	2
+
+	2 5
+	2 4 2 3 4 5 6	2
+
+	3 6
+	2 4 2 6 4 2 6	2
+
+	0 4
+	2 4 2 6 2 2 6	2
+
+	6 0
+	2 4 2 6 2 2 2	2
+
+	1 3
+	2 4 2 6 2 2 2	8
+

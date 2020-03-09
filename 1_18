@@ -1,0 +1,7 @@
+1_18
+
+	Give a sequence of input pairs that causes the weighted quick-union algorithm with full path compression (see Exercise 1_16) to produce a path of length 4
+
+---------------------------------------------------------------------------------------------------
+
+ 	This one is just like 1_15, please look up that exercise, I won't do it again.

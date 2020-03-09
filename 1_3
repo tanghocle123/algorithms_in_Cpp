@@ -1,0 +1,11 @@
+1_3
+
+	Describe a simple method for counting the number of sets remaining after using the union and find operations to solve the connectivity problem as describe in the text.
+
+	Honestly I can't come up with a more clever solution for this exercise, so I will do this instead.
+
+	int count = 0;
+	int i=0;
+	Traverse through the whole array, 
+	- if arr[i]==0, it means that there exists a set (or more specifically, we have found the root of a set, there is only 1 root of a set, so we cannot miss-count it), count++;
+	- And if arr[i]!=0, it means that that element in the array is not the root of a set, so it belongs to a set already, we might have miss-counted it, count++;

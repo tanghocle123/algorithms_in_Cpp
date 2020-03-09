@@ -1,0 +1,21 @@
+1_2 
+
+	List all the different ways to connect two different objects for the example in Figure 1_1
+
+	We can connect it directly or indirectly, however we want.
+
+	For example, in exercise 1_1
+
+	0-2	0-2
+	1-4	1-4
+	2-5	2-5
+	3-6	3-6
+	0-4	0-4
+	6-0	6-0
+	1-3		1-4-0-6-3
+
+	We can connect 1 and 3 as 1-3, not 1-4-0-6-3
+	
+	Or we can connect 0 and 5 as 0-5, not 0-2-5
+
+

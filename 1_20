@@ -1,0 +1,56 @@
+1_20
+
+	Modify program 1_3 to use the height of the trees (longest path from any node to the root), instead of the weight, to decide whether to set id[i] = j or id[j]= i. Run empirical studies to comprate this variant with program 1_3
+
+---------------------------------------------------------------------------------------------------
+
+	Let's rephrase some of the ideas in this exercise
+	By weight, we mean the number of elements in a set.
+	By height, we mean the height of a tree (or a set)
+
+	When switching from weight to height, we must voice our concern on any operations that involve tinkering with the weight array, even new operations that don't involve the weight array, like
+	- Inintiallize the id array and the weight array
+	- Comparing weight between two sets.
+	- Path compression: traversing up the tree (meaning height)
+
+	I'm having some trouble with path compression by height,
+	Luckily, modifying program 1_3 doesn't have anything to do with path compression, so that's a relief.
+
+	 
+---------------------------------------------------------------------------------------------------
+
+#include <iostream>
+
+static const int N = 10000;
+
+int main()
+{
+    int i,j,p,q,id[N], ht[N];
+    for(i=0;i<N;i++)
+    {   id[i]=i; ht[i]=1;}
+    while(std::cin >> p >> q)
+    {
+        for(i=p;i!=id[i];i=id[i]) {}
+        for(j=q;j!=id[j];j=id[j]) {}
+
+        if(i==j) continue;
+
+        if(ht[i]<ht[j])
+        {
+            id[i]=j;
+
+        }
+        else if(ht[i]>ht[j])
+        {
+            id[j]=i;
+        }
+        else if(ht[i]==ht[j])
+        {
+            id[i]=j;
+            ht[j]++;
+        }
+        std::cout << " " << p << " " << q << std::endl;
+    }
+}
+
+

@@ -1,0 +1,23 @@
+1_10
+
+	Estimate the minimum amount of time (in days) that would be required for quick find (Program 1_1) to solve a problem with 10^9 objects and 10^6 input pairs, on a computer caple of excecuting 10^9 instruction per second. Assume that each iteration of the inner for loop requires at least 10 instruction
+
+---------------------------------------------------------------------------------------------------
+	
+	Ok, each iteration of inner loop requires at lease 10 instructions,
+
+		Inner for loop (1) >= 10*10^9 = 10^10
+		
+
+	We have 10^6 input pairs
+
+  		So we'll run at least 10^10*10^6 = 10^16 instruction
+
+	We run 10^9 instruction per second,
+
+		So we will run 10^16/10^9 = 10000000 seconds 
+		And that is second
+		Convert it to hours
+		=>> 2777.77 hours
+		=>> 115.74 days
+	

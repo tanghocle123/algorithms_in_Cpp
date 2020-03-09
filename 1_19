@@ -1,0 +1,7 @@
+1_19
+
+	Give an example showing that modifying quick union (Program 1_2) to implement full path compressio (see Exercise 1_16) is not sufficient to ensure that the trees have no long paths
+
+---------------------------------------------------------------------------------------------------
+
+	Basically, just look at exercise 1_15, I have said about it already, connect only the root for safety, else they will compress all the way to the root.

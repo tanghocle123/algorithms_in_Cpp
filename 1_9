@@ -1,0 +1,31 @@
+1_9
+
+
+	Prove an upper bound on the number of machine unstruction required to process M connections on N objects using program 1_3. You may assume, for example, that any C++ assignment statement requires less than c instructions, for some fixed constant c
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Ok Let's figure this out by myself
+
+	Program 1_3 is weighted_quick_union
+
+	- For assigning every root with its root number and height	(1)
+		   for(i=0;i<N;i++)
+		    {
+			id[i]=i;
+			height[i]=1;
+		    }
+		This will yield (1) < 2*N*C
+
+	- For finding the root of each two queries and merging 		(2)
+			The worst case is having two trees with the same size and with a power of two
+			
+			When we merge them (2^n for each tree), we get a new tree with 2^(n+1) nodes and we increase the distance to the root to n+1 (please read the book I don't know what i'm writing)
+		
+			Imagine a set of i objects and a set of j objects (i<j), we merge them together, obviously we will merge i to j, the new set will have i+j objects, and has log(i+j) size,
+
+		Because this is done N times
+		This will yield	(2) < N*log(i+j)*C
+
+
+	The upperbound will be N*log(i+j)*C 
+

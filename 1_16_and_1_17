@@ -1,0 +1,103 @@
+1_16
+
+	Show how to modify program 1_3 to imlement full path compression, where we complete each union operation by making every node we touch point to the root of the new tree.
+
+	Unfortunately, I have done this one before
+
+	So after you have found the root of the two input pairs, you store a root in a variable, then for the two pairs, you just assign everything that root
+
+---------------------------------------------------------------------------------------------------
+
+#include <iostream>
+static const int N=1000;
+int main()
+{
+    int p,q;
+    int id[N];
+    int height[N];
+    int i,j;
+
+    int counter=0;
+    for(i=0;i<N;i++)
+    {
+        id[i]=i;
+        height[i]=1;
+    }
+
+    int root1=0;
+    int root2=0;
+    while(std::cin >> p >> q)
+    {
+        counter=0;
+        for(i=id[p];i!=id[i];i=id[i])
+        {
+                root1=id[i];
+                counter+=3;
+        }
+        int remi;
+        for(i=id[p];i!=id[i];)
+        {
+            remi=id[i];
+            id[i]=root1;
+            i=remi;
+        }
+
+
+
+        for(j=id[j];j!=id[j];j=id[j])
+        {
+                root2=id[j];
+                counter+=3;
+        }
+        int remj;
+        for(j=id[q];j!=id[j];)
+        {
+            remj=id[j];
+            id[j]=root2;
+            j=remj;
+        }
+
+
+
+        if(height[j]>=height[i])
+        {
+            id[i]=id[j];
+            height[j]+=height[i];
+            counter+=2;
+        }
+        else
+        {
+            id[j]=id[i];
+            height[i]+=height[j];
+            counter+=2;
+        }
+
+        for(i=0;i<7;i++)
+        {
+            std::cout << id[i] << " ";
+        }
+        std::cout << '\t' << counter << std::endl << std::endl;
+    }
+}
+---------------------------------------------------------------------------------------------------
+
+	0 2
+	2 1 2 3 4 5 6	2
+
+	1 4
+	2 4 2 3 4 5 6	2
+
+	2 5
+	2 4 2 3 4 2 6	2
+
+	3 6
+	2 4 2 6 4 2 6 	2
+
+	0 4
+	2 4 2 6 2 2 6	2
+
+	6 0
+	2 4 2 6 2 2 2	2
+
+	1 3
+	2 4 2 6 2 2 0	5

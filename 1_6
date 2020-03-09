@@ -1,0 +1,70 @@
+1_6
+
+	Give the contents of the id array after each union operation for the weighted quick-union algorithm running on the examples corresponding to Figure 1_7 and 1_8
+
+	
+
+---------------------------------------------------------------------------------------------------
+	Code: 
+
+#include <iostream>
+static const int N=1000;
+int main()
+{
+    int p,q;
+    int id[N];
+    int height[N];
+    int i,j;
+    for(i=0;i<N;i++)
+    {
+        id[i]=i;
+        height[i]=1;
+    }
+
+    while(std::cin >> p >> q)
+    {
+        for(i=id[p];i!=id[i];i=id[i]) {}
+        for(j=id[q];j!=id[j];j=id[j]) {}
+
+        if(height[j]>=height[i])
+        {
+            id[i]=id[j];
+            height[j]+=height[i];
+        }
+        else
+        {
+            id[j]=id[i];
+            height[i]+=height[j];
+        }
+
+        for(i=0;i<7;i++)
+        {
+            std::cout << id[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+
+	0 2
+	2 1 2 3 4 5 6
+
+	1 4
+	2 4 2 3 4 5 6
+
+	2 5
+	2 4 2 3 4 2 6
+
+	3 6
+	2 4 2 6 4 2 6
+
+	0 4
+	2 4 2 6 2 2 6
+
+	6 0
+	2 4 2 6 2 2 2
+
+	1 3
+	2 4 2 6 2 2 2

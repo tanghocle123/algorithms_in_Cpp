@@ -1,0 +1,13 @@
+1_11
+
+	Estimate the maximum amount of time (in seconds) that would be required for weighted quick union (Program 1_3) to solve a problem with 10^9 objects and 10^6 input pairs, on a computer caple of executing 10^9 instructions per second.Assume that each iteration of the outer while loop requires at most 100 instructions
+
+---------------------------------------------------------------------------------------------------
+
+	Each while iteration takes 100 instructions at most
+
+	The 10^9 objects doesn't have anything to do with our programs, the algorithm doesn't depend on the number of object like quick-find
+	And we have 10^6 input pairs, so it's 10^6*100= 10^8 
+	
+
+	That's less than a second

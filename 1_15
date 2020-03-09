@@ -1,0 +1,26 @@
+1_15
+
+	Give a sequence of input pairs that causes the weighted quick-union algorithm with path compression by halving to produce a path of length 4
+
+
+---------------------------------------------------------------------------------------------------
+
+	I swear, this one is real easy, don't be scared just because it is the black dot question
+
+	So again, I'll copy what I said from 1_14 to here:
+
+
+	To have the weight quick-union algorithm produce a pathb of length 4, we must have 2^(4) objects first, so as least 16 objects, then when we merge two set, each with 2^n objects, we will get a new set of 2^(n+1) objects with height n+1
+
+	I'll illustate how to do this with brackets
+	Since this one has path-compression in it, you must input the pairs in a unique manner, specifically, always select the roots as the input pairs, not the branch of the tree. If you always select the roots, you will always skips path compression by halving, therefore, the length will not be compressed.
+
+*** The number of brackets is the height of the tree ***
+
+	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+	(0 1) (2 3) (4 5) (6 7) (8 9) (10 11) (12 13) (14 15)
+	((0 1 2 3)) ((4 5 6 7)) ((8 9 10 11)) ((12 13 14 15))
+	(((0 1 2 3 4 5 6 7)))	(((8 9 10 11 12 13 14 15)))
+	
+	((((0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))))
+

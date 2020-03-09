@@ -1,0 +1,21 @@
+1_14
+
+	Give a sequnce of input pairs that causes the weighted quick-union algorithm (Program 1_3) to produce a path of length 4
+
+---------------------------------------------------------------------------------------------------
+
+	To have the weight quick-union algorithm produce a pathb of length 4, we must have 2^(4) objects first, so as least 16 objects, then when we merge two set, each with 2^n objects, we will get a new set of 2^(n+1) objects with height n+1
+
+	I'll illustate how to do this with brackets
+	Since this one doesn't have path-compression in it, you can input pairs in any order you want
+
+*** The number of brackets is the height of the tree ***
+
+	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+	(0 1) (2 3) (4 5) (6 7) (8 9) (10 11) (12 13) (14 15)
+	((0 1 2 3)) ((4 5 6 7)) ((8 9 10 11)) ((12 13 14 15))
+	(((0 1 2 3 4 5 6 7)))	(((8 9 10 11 12 13 14 15)))
+	
+	((((0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15))))
+
+	
